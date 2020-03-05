@@ -1,16 +1,16 @@
 import React from "react";
 import Button from "./Button";
 
-function AddNewTask() {
+function NewTask() {
   return (
     <div className="container new-task-block">
-      <h2>Новая задача</h2>
+      <h2 className="title">Новая задача</h2>
       <div className="input-group mb-3 ">
         <input className="input form-control" type="text" />
-        <Button />
+        <Button btnName={"Начать работу"} />
       </div>
     </div>
   );
 }
 
-export default AddNewTask;
+export default NewTask;

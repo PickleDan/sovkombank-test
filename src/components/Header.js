@@ -1,5 +1,5 @@
 import React from "react";
-import Clock from "./CurrentTime";
+import Clock from "./Clock";
 
 function Header() {
   return (

@@ -1,4 +1,5 @@
 $main-color: #6979f8;
+$accent-color: #fff;
 
 .header {
   height: 50px;
@@ -10,25 +11,55 @@ $main-color: #6979f8;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #fff;
+    color: $accent-color;
   }
 }
 
 .new-task-block {
   margin-top: 40px;
   .input {
-    width: 600px;
+    max-width: 640px;
     margin-right: 15px;
   }
   .input-group {
     padding-top: 10px;
-    width: 900px;
+    max-width: 900px;
   }
   .btn {
     width: 180px;
     background-color: $main-color;
-    color: #fff;
+    color: $accent-color;
     outline: none;
     user-select: none;
   }
+}
+
+.current-tasks-block {
+  margin-top: 40px;
+
+  .current-task-list {
+    padding-top: 10px;
+  }
+  .current-task {
+    display: flex;
+
+    &-item {
+      padding-right: 88px;
+    }
+  }
+  .current-task-btn {
+    color: $main-color;
+    border: 1.5px solid $main-color;
+    height: 38px;
+    width: 180px;
+    margin-left: 30px;
+    transition: all 0.2s ease-out;
+    &:hover {
+      background-color: darken($color: $accent-color, $amount: 4);
+    }
+  }
+}
+
+.title {
+  color: $main-color;
 }

@@ -1,9 +1,9 @@
 import React from "react";
 
-function Button() {
+function Button({ btnName }) {
   return (
-    <button type="button" className="btn">
-      Начать работу
+    <button type="button" className="btn current-task-btn">
+      {btnName}
     </button>
   );
 }
