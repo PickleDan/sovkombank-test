@@ -1,0 +1,74 @@
+// Widescreens
+@include mediaXl {
+}
+
+// Desktops & Laptops
+@include mediaLg {
+  .completed-tasks-block {
+    .completed-tasks-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .current-tasks-block .current-task-item {
+    padding: 10px;
+  }
+}
+
+// Tablets & Small Laptops
+@include mediaMd {
+  .completed-tasks-block {
+    .completed-tasks-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .current-tasks-block .current-task-item {
+    padding: 5px;
+  }
+  .current-tasks-block .current-task-btn {
+    font-size: 12px;
+  }
+}
+
+// Smartphones
+@include mediaSm {
+  h1 {
+    font-size: 14px;
+  }
+  .current-time {
+    font-size: 14px;
+  }
+  .new-task-block {
+    .input-group {
+      flex-direction: column;
+    }
+    .btn {
+      margin-top: 15px;
+      width: 100%;
+    }
+  }
+
+  .completed-tasks-block {
+    .completed-tasks-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .current-tasks-block {
+    p {
+      margin: 0;
+    }
+    .current-task {
+      flex-direction: column;
+      margin-bottom: 20px;
+      .current-task-item {
+        padding-right: 40px;
+      }
+    }
+    .current-task-btn {
+      margin: 0;
+      margin-bottom: 5px;
+
+      width: 100%;
+    }
+  }
+}

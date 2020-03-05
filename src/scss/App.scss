@@ -1,6 +1,9 @@
-$main-color: #6979f8;
-$accent-color: #fff;
+@import "config";
 
+h1 {
+  font-size: 18px;
+  margin: 0;
+}
 h2 {
   font-weight: bold;
   font-size: 18px;
@@ -55,7 +58,6 @@ h3 {
 
 .current-tasks-block {
   margin-top: 40px;
-
   .current-task-list {
     padding-top: 10px;
   }
@@ -64,6 +66,9 @@ h3 {
 
     &-item {
       padding-right: 92px;
+    }
+    .task-duration {
+      display: flex;
     }
   }
   .current-task-btn {
@@ -130,3 +135,5 @@ h3 {
     }
   }
 }
+
+@import "mobile";
