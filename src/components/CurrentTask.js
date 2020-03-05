@@ -5,15 +5,15 @@ function CurrentTask() {
   return (
     <div className="current-task">
       <div className="current-task-item">
-        <h3 className="title">Название</h3>
+        <h3>Название</h3>
         <p>Верстка главной страницы</p>
       </div>
       <div className="current-task-item">
-        <h3 className="title">Начало</h3>
+        <h3>Начало</h3>
         <p>12:10:15</p>
       </div>
       <div className="current-task-item">
-        <h3 className="title">Длительность</h3>
+        <h3>Длительность</h3>
         <p>01.09.02</p>
       </div>
       <Button btnName={"Закончить работу"} />
