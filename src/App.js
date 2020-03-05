@@ -14,10 +14,26 @@ body {
     props.theme.mode === "dark" ? "#1f2041;" : "#fff"};
   color: ${props => (props.theme.mode === "dark" ? "#EEE" : "#111")}
 }
+.title {
+  color: ${props => (props.theme.mode === "dark" ? "#fff" : "#6979f8")};
+}
 `;
 
 function App() {
   const [theme, setTheme] = useState({ mode: "light" });
+
+  const [tasksState, setTaskState] = useState([
+    {
+      title: "Верстка главной страницы",
+      startTime: "12:10:15",
+      duration: "01:09:02"
+    },
+    {
+      title: "Написание кода",
+      startTime: "15:10:15",
+      duration: "02:09:02"
+    }
+  ]);
 
   const clickThemeHandler = e =>
     setTheme(theme.mode === "dark" ? { mode: "light" } : { mode: "dark" });
@@ -27,8 +43,8 @@ function App() {
       <>
         <GlobalStyle />
         <Header />
-        <NewTask />
-        <CurrentTasks />
+        <NewTask tasksState={tasksState} setTaskState={setTaskState} />
+        <CurrentTasks listOfCurrentTasks={tasksState} />
         <CompletedTasks />
         <ChangeTheme onClick={clickThemeHandler} />
       </>

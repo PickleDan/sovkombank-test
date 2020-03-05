@@ -21,11 +21,16 @@
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  .current-tasks-block .current-task-item {
-    padding: 5px;
-  }
-  .current-tasks-block .current-task-btn {
-    font-size: 12px;
+  .current-tasks-block {
+    .current-task-item {
+      padding: 5px;
+    }
+    .current-task-btn {
+      font-size: 12px;
+    }
+    .task-title {
+      width: 150px;
+    }
   }
 }
 
@@ -67,7 +72,9 @@
     .current-task-btn {
       margin: 0;
       margin-bottom: 5px;
-
+      width: 100%;
+    }
+    .task-title {
       width: 100%;
     }
   }
