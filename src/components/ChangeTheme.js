@@ -1,8 +1,8 @@
 import React from "react";
 
-function ChangeTheme() {
+function ChangeTheme({ onClick }) {
   return (
-    <div className="change-theme">
+    <div onClick={onClick} className="change-theme">
       <div className="outer-circle">
         <div className="inner-circle"></div>
       </div>

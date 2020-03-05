@@ -1,5 +1,8 @@
 @import "config";
-
+body {
+  background-color: $bg-color;
+  color: $accent-color;
+}
 h1 {
   font-size: 18px;
   margin: 0;
@@ -72,6 +75,7 @@ h3 {
     }
   }
   .current-task-btn {
+    background-color: $accent-color;
     color: $main-color;
     border: 1.5px solid $main-color;
     height: 38px;

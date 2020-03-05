@@ -7,7 +7,6 @@ function CurrentTasks() {
       <h2 className="title">Текущие задачи</h2>
       <div className="current-task-list">
         <CurrentTask />
-        <CurrentTask />
       </div>
     </div>
   );

@@ -7,10 +7,6 @@ function CompletedTasks() {
       <h2 className="title">Мои задачи</h2>
       <div className="completed-tasks-grid">
         <CompletedTask />
-        <CompletedTask />
-        <CompletedTask />
-        <CompletedTask />
-        <CompletedTask />
       </div>
     </div>
   );
