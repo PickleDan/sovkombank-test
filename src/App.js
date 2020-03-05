@@ -1,9 +1,15 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import Header from "./components/Header";
+import AddNewTask from "./components/AddNewTask";
 
 function App() {
-  return <Header />;
+  return (
+    <>
+      <Header />
+      <AddNewTask />
+    </>
+  );
 }
 
 export default App;

@@ -1,0 +1,34 @@
+$main-color: #6979f8;
+
+.header {
+  height: 50px;
+  width: 100%;
+  background: $main-color;
+  .header-flex {
+    font-size: 18px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+  }
+}
+
+.new-task-block {
+  margin-top: 40px;
+  .input {
+    width: 600px;
+    margin-right: 15px;
+  }
+  .input-group {
+    padding-top: 10px;
+    width: 900px;
+  }
+  .btn {
+    width: 180px;
+    background-color: $main-color;
+    color: #fff;
+    outline: none;
+    user-select: none;
+  }
+}

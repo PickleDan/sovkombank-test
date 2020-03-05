@@ -4,9 +4,11 @@ import Clock from "./CurrentTime";
 function Header() {
   return (
     <div className="header">
-      <div>Учет времени работы</div>
-      <div>
-        Текущее время <Clock />
+      <div className="container header-flex">
+        <div>Учет времени работы</div>
+        <div>
+          Текущее время <Clock />
+        </div>
       </div>
     </div>
   );
