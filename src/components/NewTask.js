@@ -17,8 +17,8 @@ function NewTask({ tasksState, setTaskState }) {
       ...tasksState,
       {
         title: inputState.input,
-        startTime: moment().format("HH:mm:ss"),
-        endTime: 0
+        startTime: new moment(),
+        endTime: null
       }
     ]);
   };

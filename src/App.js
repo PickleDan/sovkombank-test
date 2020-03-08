@@ -26,8 +26,8 @@ function App() {
   const [tasksState, setTaskState] = useState([
     {
       title: "Верстка главной страницы",
-      startTime: moment().format("HH:mm:ss"),
-      endTime: 0
+      startTime: moment(),
+      endTime: null
     }
   ]);
 
