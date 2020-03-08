@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./scss/App.scss";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
+import moment from "moment";
 
 import Header from "./components/Header";
 import NewTask from "./components/NewTask";
@@ -25,13 +26,8 @@ function App() {
   const [tasksState, setTaskState] = useState([
     {
       title: "Верстка главной страницы",
-      startTime: "12:10:15",
-      duration: "01:09:02"
-    },
-    {
-      title: "Написание кода",
-      startTime: "15:10:15",
-      duration: "02:09:02"
+      startTime: moment().format("HH:mm:ss"),
+      endTime: 0
     }
   ]);
 

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import moment from "moment";
+
+moment.locale("ru");
 
 function NewTask({ tasksState, setTaskState }) {
   const [inputState, setInputState] = useState({ input: "" });
@@ -7,22 +10,32 @@ function NewTask({ tasksState, setTaskState }) {
   const handleInput = e => {
     setInputState({ input: e.target.value });
   };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    setTaskState([
+      ...tasksState,
+      {
+        title: inputState.input,
+        startTime: moment().format("HH:mm:ss"),
+        endTime: 0
+      }
+    ]);
+  };
+
   return (
     <div className="container new-task-block">
       <h2 className="title">Новая задача</h2>
-      <div className="input-group mb-3 ">
-        <input
-          className="input form-control"
-          type="text"
-          value={inputState.input}
-          onChange={handleInput}
-        />
-        <Button
-          inputState={inputState}
-          tasksState={tasksState}
-          setTaskState={setTaskState}
-          btnName={"Начать работу"}
-        />
+      <div className="mb-3 ">
+        <form className="input-group" onSubmit={handleSubmit}>
+          <input
+            className="input form-control"
+            type="text"
+            value={inputState.input}
+            onChange={handleInput}
+          />
+          <Button btnName={"Начать работу"} />
+        </form>
       </div>
     </div>
   );
