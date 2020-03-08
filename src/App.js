@@ -28,6 +28,11 @@ function App() {
       title: "Верстка главной страницы",
       startTime: moment(),
       endTime: null
+    },
+    {
+      title: "Подготовка окружения",
+      startTime: moment("08/03/2020 18:15"),
+      endTime: moment("08/03/2020 22:15")
     }
   ]);
 
@@ -41,7 +46,7 @@ function App() {
         <Header />
         <NewTask tasksState={tasksState} setTaskState={setTaskState} />
         <CurrentTasks listOfCurrentTasks={tasksState} />
-        <CompletedTasks />
+        <CompletedTasks listOfCurrentTasks={tasksState} />
         <ChangeTheme onClick={clickThemeHandler} />
       </>
     </ThemeProvider>

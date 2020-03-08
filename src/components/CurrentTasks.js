@@ -9,13 +9,17 @@ function CurrentTasks({ listOfCurrentTasks }) {
     <div className="container current-tasks-block">
       <h2 className="title">Текущие задачи</h2>
       <div className="current-task-list">
-        {listOfCurrentTasks.map(task => (
-          <CurrentTask
-            task={task}
-            currentTime={currentTime}
-            setCurrentTime={setCurrentTime}
-          />
-        ))}
+        {listOfCurrentTasks.map(task => {
+          if (task.endTime === null) {
+            return (
+              <CurrentTask
+                task={task}
+                currentTime={currentTime}
+                setCurrentTime={setCurrentTime}
+              />
+            );
+          }
+        })}
       </div>
     </div>
   );
