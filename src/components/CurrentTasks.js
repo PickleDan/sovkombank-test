@@ -13,6 +13,7 @@ function CurrentTasks({ listOfCurrentTasks, setTaskState }) {
           if (task.endTime === "null") {
             return (
               <CurrentTask
+                key={task.id}
                 task={task}
                 currentTime={currentTime}
                 setTaskState={setTaskState}

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./scss/App.scss";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
-import moment from "moment";
-import _ from "lodash";
 
 import Header from "./components/Header";
 import NewTask from "./components/NewTask";
@@ -24,20 +22,7 @@ body {
 function App() {
   const [theme, setTheme] = useState({ mode: "light" });
 
-  const [tasksState, setTaskState] = useState([
-    // {
-    //   id: parseInt(_.uniqueId()),
-    //   title: "Верстка главной страницы",
-    //   startTime: moment(),
-    //   endTime: null
-    // },
-    {
-      id: parseInt(_.uniqueId()),
-      title: "Подготовка окружения",
-      startTime: "08/03/2020 18:15",
-      endTime: "08/03/2020 22:15"
-    }
-  ]);
+  const [tasksState, setTaskState] = useState([]);
 
   fetch("http://localhost:3000/tasks", {
     method: "GET",

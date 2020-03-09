@@ -8,7 +8,7 @@ function CompletedTasks({ listOfCurrentTasks }) {
       <div className="completed-tasks-grid">
         {listOfCurrentTasks.map(task => {
           if (task.endTime !== "null") {
-            return <CompletedTask task={task} />;
+            return <CompletedTask key={task.id} task={task} />;
           }
         })}
       </div>
