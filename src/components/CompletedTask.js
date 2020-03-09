@@ -8,11 +8,11 @@ function CompletedTask({ task }) {
       <div className="wrapper">
         <div className="completed-task-item">
           <h3>Начало</h3>
-          <div>{task.startTime.format("HH:mm:ss")}</div>
+          <div>{moment(task.startTime).format("HH:mm:ss")}</div>
         </div>
         <div className="completed-task-item">
           <h3>Конец</h3>
-          <div>{task.endTime.format("HH:mm:ss")}</div>
+          <div>{moment(task.endTime).format("HH:mm:ss")}</div>
         </div>
         <div className="completed-task-item">
           <h3>Длительность</h3>

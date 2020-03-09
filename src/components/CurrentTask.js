@@ -6,12 +6,20 @@ function CurrentTask({ task, currentTime, setTaskState, listOfCurrentTasks }) {
   const finishTaskBtnHandler = (task, e) => {
     const updatedListTasks = listOfCurrentTasks.map(listItem => {
       if (listItem.id === task.id) {
-        return {
+        const updatedTask = {
           id: parseInt(_.uniqueId()),
           title: task.title,
           startTime: task.startTime,
-          endTime: moment()
+          endTime: moment().format("DD/MM/YYYY HH:mm:ss")
         };
+        fetch(`http://localhost:3000/tasks/${task.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(updatedTask)
+        });
+        return updatedTask;
       } else return listItem;
     });
     setTaskState(updatedListTasks);
@@ -26,7 +34,7 @@ function CurrentTask({ task, currentTime, setTaskState, listOfCurrentTasks }) {
       <div className="task-duration">
         <div className="current-task-item">
           <h3>Начало</h3>
-          <p>{task.startTime.format("HH:mm:ss")}</p>
+          <p>{moment(task.startTime).format("HH:mm:ss")}</p>
         </div>
         <div className="current-task-item">
           <h3>Длительность</h3>

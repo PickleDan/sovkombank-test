@@ -14,14 +14,28 @@ function NewTask({ tasksState, setTaskState }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (inputState.input.length < 4) {
-      alert("Количество символов должно быть не меньше 6");
+
+    if (inputState.input.length < 4 || inputState.input.length > 35) {
+      alert("Количество символов должно быть не меньше 6 и не больше 30");
     } else {
+      const newTask = {
+        title: inputState.input,
+        startTime: moment().format("DD/MM/YYYY HH:mm:ss"),
+        endTime: "null"
+      };
+      fetch("http://localhost:3000/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newTask)
+      });
+
       setTaskState([
         {
           id: parseInt(_.uniqueId()),
           title: inputState.input,
-          startTime: new moment(),
+          startTime: moment().format("DD/MM/YYYY HH:mm:ss"),
           endTime: null
         },
         ...tasksState

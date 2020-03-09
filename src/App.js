@@ -25,19 +25,28 @@ function App() {
   const [theme, setTheme] = useState({ mode: "light" });
 
   const [tasksState, setTaskState] = useState([
-    {
-      id: parseInt(_.uniqueId()),
-      title: "Верстка главной страницы",
-      startTime: moment(),
-      endTime: null
-    },
+    // {
+    //   id: parseInt(_.uniqueId()),
+    //   title: "Верстка главной страницы",
+    //   startTime: moment(),
+    //   endTime: null
+    // },
     {
       id: parseInt(_.uniqueId()),
       title: "Подготовка окружения",
-      startTime: moment("08/03/2020 18:15"),
-      endTime: moment("08/03/2020 22:15")
+      startTime: "08/03/2020 18:15",
+      endTime: "08/03/2020 22:15"
     }
   ]);
+
+  fetch("http://localhost:3000/tasks", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(response => response.json())
+    .then(result => setTaskState(result));
 
   const clickThemeHandler = e =>
     setTheme(theme.mode === "dark" ? { mode: "light" } : { mode: "dark" });
