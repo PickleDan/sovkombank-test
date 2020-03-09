@@ -1,8 +1,8 @@
 import React from "react";
 
-function Button({ btnName, inputState, tasksState, setTaskState }) {
+function Button({ btnName, type }) {
   return (
-    <button type="submit" className="btn current-task-btn">
+    <button type={type} className="btn current-task-btn">
       {btnName}
     </button>
   );

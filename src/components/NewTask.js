@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import moment from "moment";
+import _ from "lodash";
 
 moment.locale("ru");
 
@@ -13,14 +14,21 @@ function NewTask({ tasksState, setTaskState }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    setTaskState([
-      ...tasksState,
-      {
-        title: inputState.input,
-        startTime: new moment(),
-        endTime: null
-      }
-    ]);
+    if (inputState.input.length < 4) {
+      alert("Количество символов должно быть не меньше 6");
+    } else {
+      setTaskState([
+        {
+          id: parseInt(_.uniqueId()),
+          title: inputState.input,
+          startTime: new moment(),
+          endTime: null
+        },
+        ...tasksState
+      ]);
+    }
+
+    setInputState({ input: "" });
   };
 
   return (
@@ -34,7 +42,7 @@ function NewTask({ tasksState, setTaskState }) {
             value={inputState.input}
             onChange={handleInput}
           />
-          <Button btnName={"Начать работу"} />
+          <Button btnName={"Начать работу"} type={"submit"} />
         </form>
       </div>
     </div>

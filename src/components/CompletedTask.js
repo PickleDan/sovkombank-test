@@ -4,7 +4,7 @@ import moment from "moment";
 function CompletedTask({ task }) {
   return (
     <div className="completed-task">
-      <div className="completed-task-title">Подготовка окружения</div>
+      <div className="completed-task-title">{task.title}</div>
       <div className="wrapper">
         <div className="completed-task-item">
           <h3>Начало</h3>

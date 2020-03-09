@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import CurrentTask from "./CurrentTask";
 import moment from "moment";
 
-function CurrentTasks({ listOfCurrentTasks }) {
+function CurrentTasks({ listOfCurrentTasks, setTaskState }) {
   const [currentTime, setCurrentTime] = useState({ date: new Date() });
-  setInterval(() => setCurrentTime({ date: new moment() }));
+  setInterval(() => setCurrentTime({ date: new moment() }), 1000);
   return (
     <div className="container current-tasks-block">
       <h2 className="title">Текущие задачи</h2>
@@ -15,7 +15,8 @@ function CurrentTasks({ listOfCurrentTasks }) {
               <CurrentTask
                 task={task}
                 currentTime={currentTime}
-                setCurrentTime={setCurrentTime}
+                setTaskState={setTaskState}
+                listOfCurrentTasks={listOfCurrentTasks}
               />
             );
           }

@@ -1,9 +1,22 @@
-import React, { useState, useEffect } from "react";
-import Button from "./Button";
+import React from "react";
 import moment from "moment";
-import Clock from "./Clock";
+import _ from "lodash";
 
-function CurrentTask({ task, currentTime }) {
+function CurrentTask({ task, currentTime, setTaskState, listOfCurrentTasks }) {
+  const finishTaskBtnHandler = (task, e) => {
+    const updatedListTasks = listOfCurrentTasks.map(listItem => {
+      if (listItem.id === task.id) {
+        return {
+          id: parseInt(_.uniqueId()),
+          title: task.title,
+          startTime: task.startTime,
+          endTime: moment()
+        };
+      } else return listItem;
+    });
+    setTaskState(updatedListTasks);
+  };
+
   return (
     <div className="current-task">
       <div className="current-task-item">
@@ -28,7 +41,13 @@ function CurrentTask({ task, currentTime }) {
           </p>
         </div>
       </div>
-      <Button btnName={"Закончить работу"} />
+      <button
+        onClick={() => finishTaskBtnHandler(task)}
+        type="button"
+        className="btn current-task-btn"
+      >
+        Закончить работу
+      </button>
     </div>
   );
 }
