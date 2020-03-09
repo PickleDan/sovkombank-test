@@ -10,7 +10,7 @@ function CurrentTasks({ listOfCurrentTasks, setTaskState }) {
       <h2 className="title">Текущие задачи</h2>
       <div className="current-task-list">
         {listOfCurrentTasks.map(task => {
-          if (task.endTime === "null") {
+          if (task.endTime === null) {
             return (
               <CurrentTask
                 key={task.id}
@@ -20,7 +20,7 @@ function CurrentTasks({ listOfCurrentTasks, setTaskState }) {
                 listOfCurrentTasks={listOfCurrentTasks}
               />
             );
-          }
+          } else return null;
         })}
       </div>
     </div>

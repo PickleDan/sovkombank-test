@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./scss/App.scss";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 
@@ -24,14 +24,20 @@ function App() {
 
   const [tasksState, setTaskState] = useState([]);
 
-  fetch("http://localhost:3000/tasks", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-    .then(response => response.json())
-    .then(result => setTaskState(result));
+  useEffect(() => {
+    fetchAsyncTasks();
+  }, []);
+
+  async function fetchAsyncTasks() {
+    const response = await fetch("http://localhost:3000/tasks", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    const result = await response.json();
+    await setTaskState(result);
+  }
 
   const clickThemeHandler = e =>
     setTheme(theme.mode === "dark" ? { mode: "light" } : { mode: "dark" });

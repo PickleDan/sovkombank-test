@@ -1,13 +1,11 @@
 import React from "react";
 import moment from "moment";
-import _ from "lodash";
 
 function CurrentTask({ task, currentTime, setTaskState, listOfCurrentTasks }) {
   const finishTaskBtnHandler = (task, e) => {
     const updatedListTasks = listOfCurrentTasks.map(listItem => {
       if (listItem.id === task.id) {
         const updatedTask = {
-          id: parseInt(_.uniqueId()),
           title: task.title,
           startTime: task.startTime,
           endTime: moment().format("DD/MM/YYYY HH:mm:ss")
