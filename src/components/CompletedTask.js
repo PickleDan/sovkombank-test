@@ -7,7 +7,7 @@ function CompletedTask({ task }) {
       <div className="completed-task-title">{task.title}</div>
       <div className="wrapper">
         <div className="completed-task-item">
-          <h3>Начало{task.id}</h3>
+          <h3>Начало</h3>
           <div>{moment(task.startTime).format("HH:mm:ss")}</div>
         </div>
         <div className="completed-task-item">

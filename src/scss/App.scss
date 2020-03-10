@@ -1,8 +1,8 @@
 @import "config";
 
 body {
-  background-color: $bg-color;
-  color: $accent-color;
+  background-color: var(--bg-color);
+  color: var(--normal-color);
 }
 h1 {
   font-size: 18px;
@@ -15,24 +15,24 @@ h2 {
 h3 {
   font-size: 12px;
   text-transform: uppercase;
-  color: $main-color;
+  color: var(--main-color);
   margin: 0;
 }
 .title {
-  color: $main-color;
+  color: var(--title-color);
 }
 
 .header {
   height: 50px;
   width: 100%;
-  background: $main-color;
+  background: var(--main-color);
   .header-flex {
     font-size: 18px;
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: $accent-color;
+    color: var(--accent-color);
   }
 }
 
@@ -48,14 +48,14 @@ h3 {
   }
   .btn {
     width: 180px;
-    background-color: $main-color;
-    color: $accent-color;
+    background-color: var(--main-color);
+    color: var(--accent-color);
     outline: none;
     user-select: none;
     transition: all 0.2s ease-out;
     box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.25);
     &:hover {
-      background-color: darken($color: $main-color, $amount: 4);
+      background-color: darken($main-color, $amount: 4);
     }
   }
 }
@@ -78,9 +78,9 @@ h3 {
     }
   }
   .current-task-btn {
-    background-color: $accent-color;
-    color: $main-color;
-    border: 1.5px solid $main-color;
+    background-color: var(--accent-color);
+    color: var(--main-color);
+    border: 1.5px solid var(--main-color);
     height: 38px;
     width: 180px;
     margin-left: 30px;
@@ -88,7 +88,7 @@ h3 {
     transition: all 0.2s ease-out;
     box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.25);
     &:hover {
-      background-color: darken($color: $accent-color, $amount: 4);
+      background-color: darken($accent-color, $amount: 4);
     }
   }
 }
