@@ -29,14 +29,18 @@ function App() {
   }, []);
 
   async function fetchAsyncTasks() {
-    const response = await fetch("http://localhost:3000/tasks", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-    const result = await response.json();
-    await setTaskState(result);
+    try {
+      const response = await fetch("http://localhost:3000/tasks", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const result = await response.json();
+      await setTaskState(result);
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   const clickThemeHandler = e =>

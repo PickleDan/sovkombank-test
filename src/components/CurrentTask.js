@@ -16,7 +16,7 @@ function CurrentTask({ task, currentTime, setTaskState, listOfCurrentTasks }) {
             "Content-Type": "application/json"
           },
           body: JSON.stringify(updatedTask)
-        });
+        }).catch(e => console.error(e));
         return updatedTask;
       } else return listItem;
     });

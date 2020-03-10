@@ -15,7 +15,7 @@ function NewTask({ tasksState, setTaskState }) {
     e.preventDefault();
 
     if (inputState.input.length < 4 || inputState.input.length > 35) {
-      alert("Количество символов должно быть не меньше 6 и не больше 30");
+      alert("Количество символов должно быть не меньше 6 и не больше 35");
     } else {
       const newTask = {
         title: inputState.input,
@@ -24,23 +24,27 @@ function NewTask({ tasksState, setTaskState }) {
       };
 
       async function fetchAsyncTasks() {
-        const response = await fetch("http://localhost:3000/tasks", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(newTask)
-        });
-        const result = await response.json();
-        await setTaskState([
-          {
-            id: result.id,
-            title: inputState.input,
-            startTime: moment().format("DD/MM/YYYY HH:mm:ss"),
-            endTime: null
-          },
-          ...tasksState
-        ]);
+        try {
+          const response = await fetch("http://localhost:3000/tasks", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newTask)
+          });
+          const result = await response.json();
+          await setTaskState([
+            {
+              id: result.id,
+              title: inputState.input,
+              startTime: moment().format("DD/MM/YYYY HH:mm:ss"),
+              endTime: null
+            },
+            ...tasksState
+          ]);
+        } catch (e) {
+          console.error(e);
+        }
       }
       fetchAsyncTasks();
     }
